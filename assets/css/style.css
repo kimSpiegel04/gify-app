@@ -42,8 +42,9 @@
 }
 
 .topic{
-    padding: 10px;
+    margin: 10px;
     position: relative;
+    cursor: pointer;
 }
 
 .dropdown-item{
