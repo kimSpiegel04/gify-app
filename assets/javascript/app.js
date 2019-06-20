@@ -1,4 +1,4 @@
-var topics= ['astronaut', 'black holes', 'galaxies', 'sun', 'space shuttle'];
+var topics= ['astronaut', 'ISS', 'galaxies', 'sun', 'space shuttle'];
 // var topic= 'space shuttle';
 var titleSplit=[];
 
@@ -14,6 +14,7 @@ function displayGifs(){
     }).then(function(response) {
         console.log(response);
         $('.search').text(topic);
+        document.getElementById("instructions").style.display = "none";
         //create title of search/button
         // var titleSplit=topic.split('');
         
@@ -21,11 +22,13 @@ function displayGifs(){
         //     console.log(titleSplit[j]);
         //     $('.search').append(`<span class='animate'>${titleSplit[j]}</split>`);
         // }
-
+        forLength=response.data.length;
+        console.log(forLength);
         //the rest
-        for(var i=0;i<10;i++){
+        for(var i=0;i<forLength;i++){
             console.log(response.data[i].images.fixed_height_still.url);
-            $('.display-gifs').prepend(`<img class='topic gif' src='${response.data[i].images.fixed_height_still.url}' data-still='${response.data[i].images.fixed_height_still.url}' data-animate='${response.data[i].images.fixed_height.url}' data-state='still'><span class='rate'>${response.data[i].rating}</span>`);
+            $('.display-gifs').prepend(`<img class='topic gif' src='${response.data[i].images.fixed_height_still.url}' data-still='${response.data[i].images.fixed_height_still.url}' data-animate='${response.data[i].images.fixed_height.url}' data-state='still'>${response.data[i].rating}`);
+            
         }
 
             $(".gif").on("click", function() {
@@ -61,11 +64,12 @@ function displayGifs(){
         topics.push(topic);
         addNavLinks();
         console.log(this);
-        // $('.nav-link').addClass('.search-clicked');
-        // dropdown.classList.add('.search-clicked');
-        // $('#add-search').text('Search');
+        reset();
     });
 
+    function reset(){
+        document.getElementById("add-gif").value = "";
+    }
 
     // var dropdown = document.querySelectorAll('.dropdown');
     $(document).on('click','.dropdown-item', displayGifs);

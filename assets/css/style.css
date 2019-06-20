@@ -41,7 +41,7 @@
     text-align: center;
 }
 
-.topic{
+.display-gifs img{
     margin: 10px;
     position: relative;
     cursor: pointer;
@@ -52,16 +52,32 @@
     cursor: pointer;
 }
 
-.animate span {
+/* .animate span {
     color: #8d6a00;
     opacity: 0;
     transform: translate(0, -100px) rotate(360deg) scale(0);
     animation: revolveDrop .3s forwards;
-}
+} */
 
-.rate { 
+/* .display-gifs p {  
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+} */
+
+/* .topic:hover p {
+    opacity: 1;
+} */
+
+/* .display-gifs span:hover { 
     /* position: absolute;  */
+    /* display: block;
     top: 200px; 
     left: 0; 
     width: 100%; 
-}
+} */ 
